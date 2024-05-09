@@ -8,9 +8,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailAddress;
+import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailValidation;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Mail;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.SendEmailResponse;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Settings;
+import com.art.test.jmailtrap.validator.MailValidator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
@@ -29,6 +31,8 @@ public class MailTrapClient {
     private HttpClient client = HttpClient.newHttpClient();
 
     private HttpClientWrapper httpClientWrapper = new HttpClientWrapper(client, objectMapper);
+
+    private MailValidator mailValidator = new MailValidator();
 
     public MailTrapClient(ApiKeyToken apiKeyToken) {
         this.apiKeyToken = apiKeyToken;
@@ -51,19 +55,25 @@ public class MailTrapClient {
     }
 
     public SendEmailResponse send(EmailAddress from, EmailAddress to, String subject, String text) {
-        //Validation!!!
-
         Mail mail = new Mail();
         mail.setFrom(from);
         mail.setTo(List.of(to));
         mail.setSubject(subject);
         mail.setText(text);
 
-        return sendMail(mail);
+        return send(mail);
     }
 
+    /**
+     * send mail
+     * @param mail
+     * @return errors or success
+     */
     public SendEmailResponse send(Mail mail) {
-        //Validation!!!
+        EmailValidation emailValidation = mailValidator.validate(mail);
+        if (!emailValidation.getSuccess()) {
+            return emailValidation.toSendEmailResponse();
+        }
         return sendMail(mail);
     }
 

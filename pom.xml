@@ -5,7 +5,7 @@
 
 	<groupId>com.art.test</groupId>
 	<artifactId>jmailtrap</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>jmailtrap</name>
 	<description>Demo project</description>
 	<properties>
@@ -14,7 +14,12 @@
 		<maven.compiler.target>15</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
 		<dependency>
@@ -50,7 +55,14 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.6.1</version>
 		</dependency>
-    </dependencies>
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+
+	</dependencies>
 
 	<build>
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -94,6 +106,11 @@
 					<artifactId>maven-project-info-reports-plugin</artifactId>
 					<version>3.4.1</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>
