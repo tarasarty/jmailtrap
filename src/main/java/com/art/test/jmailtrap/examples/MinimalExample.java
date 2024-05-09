@@ -26,7 +26,7 @@ public class MinimalExample {
                "Test");
 
        EmailAddress to = new EmailAddress(
-               "",
+               "test@gmail.com",
                "Test");
 
        String subject = "Hello from Mailtrap!";
