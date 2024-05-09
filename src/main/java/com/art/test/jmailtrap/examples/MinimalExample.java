@@ -3,6 +3,7 @@ package com.art.test.jmailtrap.examples;
 import com.art.test.jmailtrap.ApiKeyToken;
 import com.art.test.jmailtrap.MailTrapClient;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailAddress;
+import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Settings;
 
 /**
  * For this example to work, you need to set up a sending domain,
@@ -10,7 +11,7 @@ import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailAddress;
  *
  */
 public class MinimalExample {
-    private final static String TOKEN = "";
+
 
     public static void main(String... args) {
         MinimalExample minimal = new MinimalExample();
@@ -18,7 +19,7 @@ public class MinimalExample {
     }
 
    public void sendMinimal() {
-       ApiKeyToken apiKeyToken = new ApiKeyToken(TOKEN);
+       ApiKeyToken apiKeyToken = new ApiKeyToken(Settings.getTOKEN());
        MailTrapClient client = new MailTrapClient(apiKeyToken);
        EmailAddress from = new EmailAddress(
                "test@demomailtrap.com",

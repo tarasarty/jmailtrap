@@ -1,5 +1,7 @@
 package com.art.test.jmailtrap.examples;
 
+import com.art.test.jmailtrap.ApiKeyToken;
+import com.art.test.jmailtrap.MailTrapClient;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Attachment;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailAddress;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Mail;
@@ -11,11 +13,11 @@ public class EverythingExample {
     private final static String TOKEN = "";
 
     public static void main(String... args) {
-        MinimalExample minimal = new MinimalExample();
-        minimal.sendMinimal();
+        EverythingExample everything = new EverythingExample();
+        everything.sendMail();
     }
 
-    public void sendMinimal() {
+    public void sendMail() {
         var mail = new Mail();
 
         var fromMailAddress = new EmailAddress(
@@ -59,5 +61,11 @@ public class EverythingExample {
 
         var category = "API Test";
         mail.setCategory(category);
+
+        ApiKeyToken apiKeyToken = new ApiKeyToken(TOKEN);
+        MailTrapClient client = new MailTrapClient(apiKeyToken);
+
+
+        client.send(mail);
     }
 }

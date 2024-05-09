@@ -62,6 +62,11 @@ public class MailTrapClient {
         return sendMail(mail);
     }
 
+    public SendEmailResponse send(Mail mail) {
+        //Validation!!!
+        return sendMail(mail);
+    }
+
     private SendEmailResponse sendMail(Mail mail) {
 
         try {
@@ -70,7 +75,7 @@ public class MailTrapClient {
             var request = HttpRequest.newBuilder().uri(URI.create(Settings.SENDING_URL))
                     .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                     .header("Accept", "application/json")
-                    .header(apiKeyToken.getName(), apiKeyToken.getValue()) //"78a0f27d48b7251f97e175c35bf3dc8d")
+                    .header(apiKeyToken.getName(), apiKeyToken.getValue())
                     .header("Content-Type", "application/json")
                     .build();
 
