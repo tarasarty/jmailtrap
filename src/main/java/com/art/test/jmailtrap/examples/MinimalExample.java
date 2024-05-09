@@ -1,7 +1,7 @@
 package com.art.test.jmailtrap.examples;
 
 import com.art.test.jmailtrap.ApiKeyToken;
-import com.art.test.jmailtrap.MailtrapClient;
+import com.art.test.jmailtrap.MailTrapClient;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailAddress;
 
 /**
@@ -19,7 +19,7 @@ public class MinimalExample {
 
    public void sendMinimal() {
        ApiKeyToken apiKeyToken = new ApiKeyToken(TOKEN);
-       MailtrapClient client = new MailtrapClient(apiKeyToken);
+       MailTrapClient client = new MailTrapClient(apiKeyToken);
        EmailAddress from = new EmailAddress(
                "test@demomailtrap.com",
                "Test");

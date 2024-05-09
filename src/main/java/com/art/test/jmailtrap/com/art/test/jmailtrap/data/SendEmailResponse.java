@@ -21,6 +21,12 @@ public class SendEmailResponse {
         this.messageIds = messageIds;
 
     }
+
+    public SendEmailResponse(Boolean success) {
+        this.success = success;
+        messageIds = List.of();
+    }
+
     @JsonProperty("success")
     public Boolean getSuccess() {
         return success;
