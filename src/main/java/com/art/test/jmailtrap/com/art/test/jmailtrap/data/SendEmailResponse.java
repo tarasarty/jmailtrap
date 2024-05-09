@@ -15,11 +15,15 @@ public class SendEmailResponse {
     @JsonProperty("message_ids")
     private List<String> messageIds;
 
+    @JsonProperty("errors")
+    private List<String> errors;
+
     public SendEmailResponse(Boolean success,
-                             List<String> messageIds) {
+                             List<String> messageIds,
+                             List<String> errors) {
         this.success = success;
         this.messageIds = messageIds;
-
+        this.errors = errors;
     }
 
     public SendEmailResponse(Boolean success) {
@@ -47,11 +51,20 @@ public class SendEmailResponse {
         this.messageIds = messageIds;
     }
 
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<String> errors) {
+        this.errors = errors;
+    }
+
     @Override
     public String toString() {
         return "SendEmailResponse{" +
                 "success=" + success +
                 ", messageIds=" + messageIds +
+                ", errors=" + errors +
                 '}';
     }
 }

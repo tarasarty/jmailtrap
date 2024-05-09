@@ -28,15 +28,15 @@ public class HttpClientWrapper {
                 .thenApplyAsync((resp) -> {
                     if (resp.statusCode() != 200) {
                         logger.error("Error: " + resp.statusCode());
-                        throw new RuntimeException("Error: " + resp.statusCode());
                     }
                     return resp;
                 })
                 .thenApply(e -> e.body().get())
                 .thenApply(map -> {
                     return new SendEmailResponse(
-                            (Boolean) map.get("success"),
-                            (List<String>) map.get("message_ids")
+                            map.get("success") == null ? false : (Boolean) map.get("success"),
+                            (List<String>) map.get("message_ids"),
+                            (List<String>) map.get("errors")
                     );
                 })
                 .get();

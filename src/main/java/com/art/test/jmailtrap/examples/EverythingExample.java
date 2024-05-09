@@ -5,12 +5,12 @@ import com.art.test.jmailtrap.MailTrapClient;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Attachment;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailAddress;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Mail;
+import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Settings;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class EverythingExample {
-    private final static String TOKEN = "";
 
     public static void main(String... args) {
         EverythingExample everything = new EverythingExample();
@@ -62,7 +62,7 @@ public class EverythingExample {
         var category = "API Test";
         mail.setCategory(category);
 
-        ApiKeyToken apiKeyToken = new ApiKeyToken(TOKEN);
+        ApiKeyToken apiKeyToken = new ApiKeyToken(Settings.getTOKEN());
         MailTrapClient client = new MailTrapClient(apiKeyToken);
 
 
