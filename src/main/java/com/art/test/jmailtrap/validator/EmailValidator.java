@@ -3,7 +3,7 @@ package com.art.test.jmailtrap.validator;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailValidation;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Mail;
 
-public class MailValidator {
+public class EmailValidator {
 
     private final String FILENAME_REQUIRED = "Filename is required.";
     private final String CONTENT_REQUIRED = "Content is required.";
@@ -26,8 +26,11 @@ public class MailValidator {
 
         if (mail.getText() == null ||
                 mail.getText().isBlank()) {
-            result.setSuccess(false);
-            result.addError(CONTENT_REQUIRED);
+            if (mail.getHtml() == null ||
+                    mail.getHtml().isBlank()) {
+                result.setSuccess(false);
+                result.addError(CONTENT_REQUIRED);
+            }
         }
 
         return result;

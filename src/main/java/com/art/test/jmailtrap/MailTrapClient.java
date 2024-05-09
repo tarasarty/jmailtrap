@@ -12,7 +12,7 @@ import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailValidation;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Mail;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.SendEmailResponse;
 import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Settings;
-import com.art.test.jmailtrap.validator.MailValidator;
+import com.art.test.jmailtrap.validator.EmailValidator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
@@ -32,7 +32,7 @@ public class MailTrapClient {
 
     private HttpClientWrapper httpClientWrapper = new HttpClientWrapper(client, objectMapper);
 
-    private MailValidator mailValidator = new MailValidator();
+    private EmailValidator mailValidator = new EmailValidator();
 
     public MailTrapClient(ApiKeyToken apiKeyToken) {
         this.apiKeyToken = apiKeyToken;

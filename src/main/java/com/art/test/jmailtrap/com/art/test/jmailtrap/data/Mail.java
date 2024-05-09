@@ -1,11 +1,7 @@
 package com.art.test.jmailtrap.com.art.test.jmailtrap.data;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,6 +40,8 @@ public class Mail {
     private String subject;
     @JsonProperty("text")
     private String text;
+    @JsonProperty("html")
+    private String html;
     @JsonProperty("category")
     private String category;
 
@@ -128,5 +126,13 @@ public class Mail {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getHtml() {
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
     }
 }
