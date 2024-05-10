@@ -6,11 +6,15 @@ import com.art.test.jmailtrap.data.Attachment;
 import com.art.test.jmailtrap.data.EmailAddress;
 import com.art.test.jmailtrap.data.Mail;
 import com.art.test.jmailtrap.data.Settings;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class EverythingExample {
+
+    private static Logger logger = LogManager.getLogger(EverythingExample.class);
 
     public static void main(String... args) {
         EverythingExample everything = new EverythingExample();

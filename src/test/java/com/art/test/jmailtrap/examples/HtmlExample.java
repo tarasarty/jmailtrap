@@ -5,10 +5,15 @@ import com.art.test.jmailtrap.MailTrapClient;
 import com.art.test.jmailtrap.data.EmailAddress;
 import com.art.test.jmailtrap.data.Mail;
 import com.art.test.jmailtrap.data.Settings;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class HtmlExample {
+
+    private static Logger logger = LogManager.getLogger(HtmlExample.class);
+
     public static void main(String... args) {
         HtmlExample html = new HtmlExample();
         html.sendHtml();
@@ -22,7 +27,7 @@ public class HtmlExample {
                 "Test");
 
         EmailAddress to = new EmailAddress(
-                "artymyshynt@gmail.com",
+                "",
                 "Test");
 
         String subject = "Hello from Mailtrap!";

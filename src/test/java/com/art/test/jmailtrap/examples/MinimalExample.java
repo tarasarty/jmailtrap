@@ -4,6 +4,8 @@ import com.art.test.jmailtrap.ApiKeyToken;
 import com.art.test.jmailtrap.MailTrapClient;
 import com.art.test.jmailtrap.data.EmailAddress;
 import com.art.test.jmailtrap.data.Settings;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * For this example to work, you need to set up a sending domain,
@@ -12,6 +14,7 @@ import com.art.test.jmailtrap.data.Settings;
  */
 public class MinimalExample {
 
+    private static Logger logger = LogManager.getLogger(MinimalExample.class);
 
     public static void main(String... args) {
         MinimalExample minimal = new MinimalExample();
@@ -22,7 +25,7 @@ public class MinimalExample {
        ApiKeyToken apiKeyToken = new ApiKeyToken(Settings.getTOKEN());
        MailTrapClient client = new MailTrapClient(apiKeyToken);
        EmailAddress from = new EmailAddress(
-               "",
+               "test@demomailtrap.com",
                "Test");
 
        EmailAddress to = new EmailAddress(
@@ -32,7 +35,9 @@ public class MinimalExample {
        String subject = "";
        String text = "Welcome to Mailtrap Sending!";
 
-       client.send(from, to, subject, text);
+       var response = client.send(from, to, subject, text);
+
+       logger.info("Response from mailtrap server " + response);
    }
 
 
