@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class HttpClientWrapper {
@@ -31,7 +32,7 @@ public class HttpClientWrapper {
      */
     public SendEmailResponse sendEmail(HttpRequest request) throws InterruptedException, ExecutionException {
         var result = client
-                .sendAsync(request, new JsonBodyHandler<java.util.LinkedHashMap<String, Object>>(objectMapper))
+                .sendAsync(request, new JsonBodyHandler<Map<String, Object>>(objectMapper))
                 .thenApplyAsync((resp) -> {
                     if (resp.statusCode() != 200) {
                         logger.error("Error: " + resp.statusCode());

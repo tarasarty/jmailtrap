@@ -17,7 +17,7 @@ public class JsonBodyHandler<T> implements HttpResponse.BodyHandler<Supplier<T>>
         this.objectMapper = objectMapper;
     }
 
-    private <T> Supplier<T> toSupplierOfType(InputStream inputStream) {
+    public <T> Supplier<T> toSupplierOfType(InputStream inputStream) {
         return () -> {
             try (InputStream stream = inputStream) {
                 return objectMapper.readValue(stream, new TypeReference<T>() {
