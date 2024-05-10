@@ -1,4 +1,4 @@
-package com.art.test.jmailtrap.com.art.test.jmailtrap.data;
+package com.art.test.jmailtrap.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 public class EmailValidation {
     @JsonProperty("success")
-    private Boolean success = true;
+    private Boolean success;
     @JsonProperty("errors")
     private List<String> errors = new ArrayList<>();
 

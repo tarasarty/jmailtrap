@@ -1,4 +1,4 @@
-package com.art.test.jmailtrap.com.art.test.jmailtrap.data;
+package com.art.test.jmailtrap.data;
 
 public class Settings {
 

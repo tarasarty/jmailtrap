@@ -1,7 +1,7 @@
 package com.art.test.jmailtrap.validator;
 
-import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailValidation;
-import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Mail;
+import com.art.test.jmailtrap.data.EmailValidation;
+import com.art.test.jmailtrap.data.Mail;
 
 public class EmailValidator {
 

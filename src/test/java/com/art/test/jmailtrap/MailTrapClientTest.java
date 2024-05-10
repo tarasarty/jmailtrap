@@ -1,14 +1,13 @@
 package com.art.test.jmailtrap;
 
-import com.art.test.jmailtrap.com.art.test.jmailtrap.data.EmailAddress;
-import com.art.test.jmailtrap.com.art.test.jmailtrap.data.Mail;
-import com.art.test.jmailtrap.com.art.test.jmailtrap.data.SendEmailResponse;
+import com.art.test.jmailtrap.data.EmailAddress;
+import com.art.test.jmailtrap.data.Mail;
+import com.art.test.jmailtrap.data.SendEmailResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.io.IOException;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.concurrent.ExecutionException;

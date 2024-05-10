@@ -1,6 +1,6 @@
 package com.art.test.jmailtrap;
 
-import com.art.test.jmailtrap.com.art.test.jmailtrap.data.SendEmailResponse;
+import com.art.test.jmailtrap.data.SendEmailResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +24,7 @@ public class HttpClientWrapper {
 
     public SendEmailResponse sendEmail(HttpRequest request) throws InterruptedException, ExecutionException {
         var result = client
-                .sendAsync(request, new JsonBodyHandler<java.util.LinkedHashMap>(objectMapper))
+                .sendAsync(request, new JsonBodyHandler<java.util.LinkedHashMap<String, Object>>(objectMapper))
                 .thenApplyAsync((resp) -> {
                     if (resp.statusCode() != 200) {
                         logger.error("Error: " + resp.statusCode());
