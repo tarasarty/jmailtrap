@@ -9,7 +9,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
-
+/**
+ * For this example to work, you need to set up a sending domain,
+ * and obtain a token that is authorized to send from the domain.
+ *
+ */
 public class HtmlExample {
 
     private static Logger logger = LogManager.getLogger(HtmlExample.class);
@@ -27,7 +31,7 @@ public class HtmlExample {
                 "Test");
 
         EmailAddress to = new EmailAddress(
-                "",
+                "***",
                 "Test");
 
         String subject = "Hello from Mailtrap!";
@@ -64,7 +68,8 @@ public class HtmlExample {
         var category = "API Test";
         mail.setCategory(category);
 
-        client.send(mail);
+        var response = client.send(mail);
+        logger.info("From mailtrap " + response);
     }
 
 

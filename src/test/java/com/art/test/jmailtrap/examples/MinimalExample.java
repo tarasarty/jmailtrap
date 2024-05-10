@@ -29,15 +29,15 @@ public class MinimalExample {
                "Test");
 
        EmailAddress to = new EmailAddress(
-               "",
+               "***",
                "Test");
 
-       String subject = "";
+       String subject = "Hello from Mailtrap!";
        String text = "Welcome to Mailtrap Sending!";
 
        var response = client.send(from, to, subject, text);
 
-       logger.info("Response from mailtrap server " + response);
+       logger.info("From mailtrap " + response);
    }
 
 

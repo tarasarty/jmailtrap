@@ -11,7 +11,11 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * For this example to work, you need to set up a sending domain,
+ * and obtain a token that is authorized to send from the domain.
+ *
+ */
 public class EverythingExample {
 
     private static Logger logger = LogManager.getLogger(EverythingExample.class);
@@ -69,7 +73,7 @@ public class EverythingExample {
         ApiKeyToken apiKeyToken = new ApiKeyToken(Settings.getTOKEN());
         MailTrapClient client = new MailTrapClient(apiKeyToken);
 
-
-        client.send(mail);
+        var response = client.send(mail);
+        logger.info("From mailtrap " + response);
     }
 }
