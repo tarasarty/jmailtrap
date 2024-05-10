@@ -22,6 +22,13 @@ public class HttpClientWrapper {
         this.client = client;
     }
 
+    /**
+     * Sent email asynchronously by the java HttpClient client .
+     * @param request
+     * @return SendEmailResponse
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
     public SendEmailResponse sendEmail(HttpRequest request) throws InterruptedException, ExecutionException {
         var result = client
                 .sendAsync(request, new JsonBodyHandler<java.util.LinkedHashMap<String, Object>>(objectMapper))
