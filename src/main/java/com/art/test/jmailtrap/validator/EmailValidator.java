@@ -5,10 +5,10 @@ import com.art.test.jmailtrap.data.Mail;
 
 public class EmailValidator {
 
-    private final String FILENAME_REQUIRED = "Filename is required.";
-    private final String CONTENT_REQUIRED = "Content is required.";
-    private final String SUBJECT_REQUIRED = "Subject is required.";
-    private final String FROM_REQUIRED = "From is required.";
+    public static final String FILENAME_REQUIRED = "Filename is required.";
+    public static final String CONTENT_REQUIRED = "Content is required.";
+    public static final String SUBJECT_REQUIRED = "Subject is required.";
+    public static final String FROM_REQUIRED = "From is required.";
 
     public EmailValidation validate(Mail mail) {
         EmailValidation result =  new EmailValidation(true);
