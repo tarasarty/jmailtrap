@@ -11,7 +11,7 @@ public class EmailValidator {
     public static final String FROM_REQUIRED = "From is required.";
 
     public EmailValidation validate(Mail mail) {
-        EmailValidation result =  new EmailValidation(true);
+        var result =  new EmailValidation(true);
         if (mail.getFrom() == null ||
                 mail.getFrom().getEmail().isBlank()) {
             result.setSuccess(false);

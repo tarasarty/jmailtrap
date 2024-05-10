@@ -48,14 +48,12 @@ public class MailTrapClient {
 
 
     private String prepareRequest(Mail mail) throws JsonProcessingException {
-
-
-        String requestBody = objectMapper.writeValueAsString(mail);
+        var requestBody = objectMapper.writeValueAsString(mail);
         return requestBody;
     }
 
     public SendEmailResponse send(EmailAddress from, EmailAddress to, String subject, String text) {
-        Mail mail = new Mail();
+        var mail = new Mail();
         mail.setFrom(from);
         mail.setTo(List.of(to));
         mail.setSubject(subject);
@@ -70,7 +68,7 @@ public class MailTrapClient {
      * @return errors or success
      */
     public SendEmailResponse send(Mail mail) {
-        EmailValidation emailValidation = mailValidator.validate(mail);
+        var emailValidation = mailValidator.validate(mail);
         if (!emailValidation.getSuccess()) {
             return emailValidation.toSendEmailResponse();
         }
